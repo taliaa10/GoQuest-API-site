@@ -16,6 +16,17 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
+exports.checkBody = (req, res, next) => {
+  console.log(`The`);
+  if (!req.body.name || !req.body.price) {
+    return res.status(400).json({
+      status: 'failed',
+      message: 'Missing name or price'
+    });
+  }
+  next();
+};
+
 // Get the data in the JSON file and create a new JSON
 exports.getAllTours = (req, res) => {
   res.status(200).json({
