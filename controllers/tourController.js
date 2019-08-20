@@ -1,4 +1,4 @@
-const Tour = require('./../models/tourModels');
+const Tour = require('../models/tourModel');
 const APIFeatures = require('../utils/apiFeatures');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
@@ -20,12 +20,6 @@ exports.getAllTours = catchAsync(async (req, res, next) => {
     .paginate();
 
   const tours = await features.query;
-
-  //  const query = Tour.find()
-  //   .where('duration')
-  //   .equals(5)
-  //   .where('difficulty')
-  //   .equals('easy');
 
   // SEND RESPONSE
   res.status(200).json({
